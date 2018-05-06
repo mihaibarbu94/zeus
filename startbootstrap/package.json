@@ -1,8 +1,8 @@
 {
-    "title": "Freelancer",
-    "name": "startbootstrap-freelancer",
-    "version": "4.0.0",
-    "description": "A freelancer portfolio HTML theme for Bootstrap.",
+    "title": "Zeus",
+    "name": "zeus",
+    "version": "0.1",
+    "description": "A framework that produces ratings for Android applications.",
     "keywords": [
         "css",
         "sass",
@@ -13,17 +13,17 @@
     ],
     "homepage": "https://startbootstrap.com/template-overviews/freelancer",
     "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-freelancer/issues",
-        "email": "feedback@startbootstrap.com"
+        "url": "https://github.com/mihaibarbu94/zeus/issues",
+        "email": "mmihai.barbu@gmail.com"
     },
     "license": "MIT",
-    "author": "Start Bootstrap",
+    "author": "Mihai Barbu",
     "contributors": [
-        "David Miller (http://davidmiller.io/)"
+        "Mihai Barbu (https://github.com/mihaibarbu94)"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-freelancer.git"
+        "url": "https://github.com/mihaibarbu94/zeus"
     },
     "dependencies": {
         "bootstrap": "4.0.0",
@@ -41,7 +41,8 @@
         "gulp-filter": "5.1.0",
         "gulp-header": "2.0.1",
         "gulp-rename": "^1.2.2",
-        "gulp-sass": "^3.1.0",
-        "gulp-uglify": "3.0.0"
+        "gulp-sass": "^3.2.1",
+        "gulp-uglify": "3.0.0",
+        "hoek": "^5.0.3"
     }
 }
