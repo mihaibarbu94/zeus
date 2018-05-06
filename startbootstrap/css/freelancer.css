@@ -268,7 +268,7 @@ input[type=file] {
 }
 
 header.masthead {
-  padding-top: calc(6rem + 72px);
+  padding-top: calc(6rem);
   padding-bottom: 6rem;
 }
 

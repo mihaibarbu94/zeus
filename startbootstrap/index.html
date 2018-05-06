@@ -31,7 +31,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Zeus</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -47,6 +47,10 @@
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
             </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                 href="#upload">Upload your APK</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -54,11 +58,14 @@
 
     <!-- Header -->
     <header class="masthead bg-primary text-white text-center">
+
       <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
-        <h1 class="text-uppercase mb-0">Start Bootstrap</h1>
+        <img class="d-block mx-auto" src="img/zeus.svg"
+             width=256 alt="">
+        <h1 class="text-uppercase mb-0">Zeus</h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0">Web Developer - Graphic Artist - User Experience Designer</h2>
+        <h2 class="font-weight-light mb-0"> Platform for determining the
+          energy rating of an Android application </h2>
       </div>
     </header>
 
@@ -204,64 +211,15 @@
     </section>
 
 
-
-
-    <div class="col-md-8">
-
-      <!--&lt;!&ndash;file input example &ndash;&gt;-->
-      <!--<span class="control-fileupload">-->
-          <!--<label for="file">Choose a file :</label>-->
-          <!--<input type="file" id="file">-->
-      <!--</span>-->
-
-      <div>
-        <form href='uploadForm'
-              id='uploadForm'
-              action='http://localhost:8080'
-              method='post'
-              encType='multipart/form-data'>
-          <input type='submit' value='Upload!' />
-        </form>
-      </div>
-
-
-
-
-
-      <!--./file input example -->
-      <p>&nbsp;</p>
-      <hr>
-      <h3 class="text-info">Exemple 2 : large upload iframe</h3>
-      <p><strong>Note:</strong> This is a CSS Demo only, no JavaScript nor Server side Code is provided to handle file preview or upload status.</p>
-      <!--image file upoad sample-->
-      <div class="box">
-        <!-- fileuploader view component -->
-        <form action="#" method="post" class="text-center">
-          <div class="margin-bottom-20">
-            <img class="thumbnail box-center margin-top-20" alt="No image" src="http://www.washaweb.com/tutoriaux/fileupload/imgs/image-temp-220.png">
-          </div>
-          <p>
-            <button type="submit" class="btn btn-sm" name="delete"><i class="icon-remove"></i> Remove</button>
-            <button type="submit" class="btn btn-primary btn-sm" id="save" name="save"><i class="icon-ok icon-white"></i> Save</button>
-          </p>
-        </form>
-        <!-- ./fileuploader view component -->
-        <div class="row">
-          <div class="col-sm-10">
-              <span class="control-fileupload">
-                <label for="file1" class="text-left">Please choose a file on your computer.</label>
-                <input type="file" id="file1">
-              </span>
-          </div>
-          <div class="col-sm-2">
-            <button type="button" class="btn btn-primary btn-block">
-              <i class="icon-upload icon-white"></i> Upload
-            </button>
-          </div>
+    <!-- Upload APK Section -->
+    <section class="bg-primary text-white mb-0" id="upload">
+      <div class="container">
+        <div class="text-center mt-4">
+          <a class="btn btn-xl btn-outline-light" href="http://localhost:8080">
+            <i class="fa fa-upload mr-2"></i>Upload Android APK</a>
         </div>
       </div>
-      <hr>
-    </div>
+    </section>
 
 
 
@@ -311,7 +269,7 @@
           <div class="col-md-4">
             <h4 class="text-uppercase mb-4">About Freelancer</h4>
             <p class="lead mb-0">Freelance is a free to use, open source Bootstrap theme created by
-              <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+              <a href="http://startbootstrap.com">Zeus</a>.</p>
           </div>
         </div>
       </div>
@@ -478,9 +436,6 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
-    <div>
-      <script src="js/uploader.min.js"></script>
-    </div>
 
 
   </body>
