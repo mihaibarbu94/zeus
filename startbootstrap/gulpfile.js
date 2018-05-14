@@ -22,9 +22,9 @@ gulp.task('vendor', function() {
 
     nodemon({
         script: 'uploader.js'
-        , ext: 'js html'
+        , ext: 'js'
         , env: { 'NODE_ENV': 'development' }
-    })
+    });
   // Bootstrap
   gulp.src([
       './node_modules/bootstrap/dist/**/*',
@@ -112,14 +112,6 @@ gulp.task('js', ['js:minify']);
 // Default task
 gulp.task('default', ['css', 'js', 'vendor']);
 
-// Configure the browserSync task
-gulp.task('browserSync', function() {
-  browserSync.init({
-    server: {
-      baseDir: "./"
-    }
-  });
-});
 
 // Dev task
 gulp.task('dev', ['css', 'js', 'browserSync'], function() {
