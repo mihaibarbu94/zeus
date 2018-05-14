@@ -35,15 +35,6 @@ public class Server {
                     DataInputStream DIS = new DataInputStream(client.getInputStream());
                     receivedMessage     = DIS.readUTF();
                     System.out.println("RECEIVED MESSAGE: " + receivedMessage);
-                    //clientIPs.add(client);
-//                    handler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            System.out.println("Connected!!!");
-//                            clientIPs.put(client.getInetAddress(), client);
-//                            //clixentIPs.add(client);
-//                        }
-//                    });
                 }
             } else {
                 System.out.println("Couldn't detect internet connection.");
