@@ -1,4 +1,6 @@
-fetch("store.txt").then(function(response) {
+var file_location = "store.txt";
+
+fetch(file_location).then(function(response) {
     if (response.status !== 200) {
         throw response.status;
     }
@@ -7,6 +9,11 @@ fetch("store.txt").then(function(response) {
 
     $(document).ready( function () {
         $('#table_id').DataTable({
+                data: JSON.parse(file_content)
+            }
+
+        );
+        $('#table_id2').DataTable({
                 data: JSON.parse(file_content)
             }
 

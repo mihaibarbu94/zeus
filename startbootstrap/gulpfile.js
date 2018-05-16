@@ -19,12 +19,6 @@ var banner = ['/*!\n',
 
 // Copy third party libraries from /node_modules into /vendor
 gulp.task('vendor', function() {
-
-    nodemon({
-        script: 'uploader.js'
-        , ext: 'js'
-        , env: { 'NODE_ENV': 'development' }
-    });
   // Bootstrap
   gulp.src([
       './node_modules/bootstrap/dist/**/*',
@@ -109,10 +103,6 @@ gulp.task('js', ['js:minify']);
 
 
 
-// Default task
-gulp.task('default', ['css', 'js', 'vendor']);
-
-
 // Dev task
 gulp.task('dev', ['css', 'js', 'browserSync'], function() {
   gulp.watch('./scss/*.scss', ['css']);
@@ -121,7 +111,7 @@ gulp.task('dev', ['css', 'js', 'browserSync'], function() {
 });
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['sass'], function() {
+gulp.task('browserSync', ['sass'], function() {
 
     browserSync.init({
         server: "./"
@@ -139,4 +129,4 @@ gulp.task('sass', function() {
         .pipe(browserSync.stream());
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', ['dev', 'css', 'js', 'vendor']);

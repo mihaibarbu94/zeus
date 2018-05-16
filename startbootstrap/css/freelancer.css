@@ -11,7 +11,8 @@ h6 {
   font-family: 'Montserrat'; }
 
 hr.star-light,
-hr.star-dark {
+hr.star-dark,
+hr.star-dark-green {
   max-width: 15rem;
   padding: 0;
   text-align: center;
@@ -21,7 +22,8 @@ hr.star-dark {
   margin-bottom: 2.5rem; }
 
 hr.star-light:after,
-hr.star-dark:after {
+hr.star-dark:after,
+hr.star-dark-green:after {
   position: relative;
   top: -.8em;
   display: inline-block;
@@ -43,6 +45,13 @@ hr.star-dark {
 hr.star-dark:after {
   color: #2C3E50;
   background-color: white; }
+
+hr.star-dark-green {
+  border-color: #2C3E50; }
+
+hr.star-dark-green:after {
+  color: #2C3E50;
+  background-color: #18bc9c; }
 
 section {
   padding: 6rem 0; }
