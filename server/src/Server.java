@@ -1,7 +1,6 @@
 import java.io.DataInputStream;
 import java.net.*;
-import java.util.Enumeration;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Server {
@@ -13,6 +12,7 @@ public class Server {
     //public static List<Socket> clixentIPs = new CopyOnWriteArrayList<>();
     public static final int SERVER_PORT = 8084;
     private String receivedMessage;
+    Data data = new Data();
 
 
     public static ServerSocket serverSocket;
@@ -34,7 +34,8 @@ public class Server {
 
                     DataInputStream DIS = new DataInputStream(client.getInputStream());
                     receivedMessage     = DIS.readUTF();
-                    System.out.println("RECEIVED MESSAGE: " + receivedMessage);
+
+                    process(receivedMessage);
                 }
             } else {
                 System.out.println("Couldn't detect internet connection.");
@@ -44,6 +45,15 @@ public class Server {
             e.printStackTrace();
         }
 
+    }
+
+    private void process(String receivedMessage){
+        System.out.println("RECEIVED MESSAGE: " + receivedMessage);
+        ArrayList<String> list = data.convertFromJSONtoArrayList(receivedMessage);
+        data.addNewReading(list);
+        data.storeToFile();
+
+        System.out.println(data.convertFromJSONtoArrayList(receivedMessage));
     }
 
     // GETS THE IP ADDRESS OF YOUR PHONE'S NETWORK
