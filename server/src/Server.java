@@ -48,7 +48,6 @@ public class Server {
     }
 
     private void process(String receivedMessage){
-        System.out.println("RECEIVED MESSAGE: " + receivedMessage);
         ArrayList<String> list = data.convertFromJSONtoArrayList(receivedMessage);
         data.addNewReading(list);
         data.storeToFile();

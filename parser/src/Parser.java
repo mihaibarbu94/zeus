@@ -14,16 +14,17 @@ public class Parser {
     private static final String PATH = "startbootstrap/chart.txt";
     private static ArrayList<ArrayList<String>> data;
     public static void main(String[] args) throws IOException {
-        readDataToTextFile();
-        ArrayList<Pair> dataPoints = parse();
-        constructDataForChart(dataPoints);
+        jsonToString();
+        ArrayList<Pair> dataPoints = parseStringToArray(2, 4);
+        ArrayList<Pair> dataWithAmendedTimes = amendTime(dataPoints);
+        constructDataForChart(dataWithAmendedTimes);
 
     }
 
     /**
      * Store data to a text file.
      */
-    public static void readDataToTextFile() throws IOException {
+    public static void jsonToString() throws IOException {
         String contents = readFile(StandardCharsets.UTF_8);
 
         Gson gson = new Gson();
@@ -34,11 +35,11 @@ public class Parser {
 
     }
 
-    static ArrayList<Pair> parse(){
+    static ArrayList<Pair> parseStringToArray(int time, int measurment){
         ArrayList<Pair> result = new ArrayList<>();
         for (ArrayList<String> aData : data) {
-            Pair point = new Pair<>(Integer.parseInt(aData.get(2)),
-                                    Integer.parseInt(aData.get(4)));
+            Pair point = new Pair<>(Integer.parseInt(aData.get(time)),
+                                    Integer.parseInt(aData.get(measurment)));
             result.add(point);
         }
 
@@ -46,21 +47,47 @@ public class Parser {
     }
 
     static void constructDataForChart(ArrayList<Pair> data){
-        String ini =  "data: [\n";
+        String result =  "data: [\n";
         for (int i = 0; i < data.size(); i++) {
-            ini += "{ \nx: ";
-            ini += data.get(i).getKey() + ",\n";
-            ini += "y: ";
-            ini += data.get(i).getValue() + "\n";
-            ini += "}";
+            result += "{ \nx: ";
+            result += data.get(i).getKey() + ",\n";
+            result += "y: ";
+            result += data.get(i).getValue() + "\n";
+            result += "}";
 
             if (i < data.size() - 1) {
-                ini += ",";
+                result += ",";
             }
         }
-        ini += "],";
+        result += "],";
 
-        System.out.println(ini);
+        System.out.println(result);
+    }
+
+    static ArrayList<Pair> amendTime (ArrayList<Pair> data){
+        ArrayList<Pair> result = new ArrayList<>();
+
+        int time = 0;
+        for (int i = 0; i < data.size() - 1; i++){
+            Pair point = new Pair<>(time +
+                                Integer.parseInt(data.get(i).getKey().toString()),
+                                Integer.parseInt(data.get(i).getValue().toString()));
+            result.add(point);
+
+            if (Integer.parseInt(data.get(i).getKey().toString()) >
+                Integer.parseInt(data.get(i + 1).getKey().toString())) {
+
+                time += Integer.parseInt(data.get(i).getKey().toString());
+            }
+        }
+        Pair point = new Pair<>(time +
+                Integer.parseInt(data.get(result.size() ).getKey().toString
+                        ()),
+                Integer.parseInt(data.get(result.size()).getValue().toString
+                        ()));
+        result.add(point);
+
+        return result;
     }
 
     static String readFile(Charset encoding)
