@@ -22,3 +22,24 @@ fetch(file_location).then(function(response) {
 }).catch(function(status) {
     console.log('Error ' + status);
 });
+
+
+file_location = "data/all_results.txt";
+
+fetch(file_location).then(function(response) {
+    if (response.status !== 200) {
+        throw response.status;
+    }
+    return response.text();
+}).then(function(file_content) {
+
+    $(document).ready( function () {
+        $('#all_results_table_id').DataTable({
+                data: JSON.parse(file_content)
+            }
+
+        );
+    } );
+}).catch(function(status) {
+    console.log('Error ' + status);
+});
